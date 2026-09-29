@@ -1,29 +1,30 @@
-# 🧠 MidgardBrain
+# MidgardBrain
 
-**MidgardBrain** é o plugin de proxy (Velocity) responsável pelo gerenciamento de rede do servidor Midgard. Ele atua como a porta de entrada, gerenciando conexões, autenticação e redirecionamento de jogadores.
+[![Build](https://github.com/EduardoPSoares/MidgardBrain/actions/workflows/build.yml/badge.svg)](https://github.com/EduardoPSoares/MidgardBrain/actions/workflows/build.yml)
+![Java](https://img.shields.io/badge/Java-21-E76F00?logo=openjdk&logoColor=white)
+![Velocity](https://img.shields.io/badge/Velocity-3.3-1BBAE0)
+![License](https://img.shields.io/github/license/EduardoPSoares/MidgardBrain)
 
-## 📋 Funcionalidades
+Plugin Velocity que é a porta de entrada da rede Midgard e a ponte entre o jogo e o
+[MidgardBot](https://github.com/EduardoPSoares/MidgardBot) do Discord.
 
-- **Gerenciamento de Conexões:** Controle de entrada e saída de jogadores.
-- **Integração com LuckPerms:** Sincronização de permissões na rede.
-- **Banco de Dados:** Suporte a MySQL e SQLite para dados globais.
-- **API de Mensagens:** Sistema de mensagens globais.
+## Destaques
 
-## 🛠️ Instalação
+- **Whitelist e vínculo de conta** Discord e Minecraft, com punições aplicadas no login.
+- **Fila de entrada** (`/fila`) e **modo manutenção** com agendamento.
+- **Sincronização de cargos**: cargos do Discord viram grupos do LuckPerms.
+- **Ponte com o bot**: envia eventos ao MidgardBot por socket TCP e recebe mensagens dos servidores por plugin
+  messaging.
+- Auditoria de ações e dados globais em MySQL ou SQLite (HikariCP).
 
-1. Compile o projeto:
-   ```bash
-   ./gradlew shadowJar
-   ```
-2. Copie o arquivo `.jar` gerado em `build/libs/` para a pasta `plugins/` do seu servidor Velocity.
-3. Reinicie o proxy.
+## Stack
 
-## ⚙️ Configuração
+Java 21 · Gradle · Velocity API · LuckPerms API · MySQL/SQLite
 
-O plugin gera um arquivo de configuração padrão em `plugins/MidgardBrain/config.toml` (ou similar) na primeira execução.
+## Como compilar
 
-## 📦 Dependências
+```bash
+./gradlew shadowJar
+```
 
-- **Velocity API:** 3.3.0-SNAPSHOT
-- **LuckPerms API:** 5.4
-- **HikariCP:** Pool de conexões de banco de dados.
+O jar sai em `build/libs/`. Configuração em `plugins/MidgardBrain/config.yml`.
